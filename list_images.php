@@ -67,3 +67,13 @@ $imagenes = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 </body>
 </html>
+
+
+<script>
+    $('#modalImagen').on('show.bs.modal', function(event){
+        var button = $(event.relatedTarget)
+        var imagen = button.data('imagen')
+        var modal = $(this)
+        modal.find('.modal-body #imagenModal').attr('src', imagen)
+    })
+</script>

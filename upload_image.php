@@ -50,3 +50,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['imagen'])) {
 </body>
 </html>
 
+
+<script>
+    function previewImage(event){
+        const input = event.target;
+        const reader = new FileReader();
+
+        reader.onload = function(){
+            const preview = document.getElementById('preview');
+            preview.src = reader.result;
+            preview.style.display = 'block';
+        }
+        if(input.files && input.files[0]){
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+</script>
+
